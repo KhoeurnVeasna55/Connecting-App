@@ -65,7 +65,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
           leadingWidth: 64,
         ),
         body: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
               Obx(() {

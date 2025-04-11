@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: context.theme.scaffoldBackgroundColor,
         body: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(20),
           child: Column(
             spacing: _spaceHeight,
             children: [

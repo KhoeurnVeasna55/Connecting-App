@@ -34,7 +34,7 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
         centerTitle: true,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: GestureDetector(
             onTap: () => Get.back(),
             child: ClipOval(
@@ -57,7 +57,7 @@ class _DetailScreenState extends State<DetailScreen> {
         leadingWidth: 78,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
