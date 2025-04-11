@@ -1,0 +1,54 @@
+name: connecting_app
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  get: ^4.7.2
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.19.0
+  get_storage: ^2.1.1
+  dot_navigation_bar: ^1.0.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/image/
+  fonts:
+    - family: Battambang
+      fonts:
+        - asset: assets/fonts/khmer/Battambang-Black.ttf
+          weight: 900
+        - asset: assets/fonts/khmer/Battambang-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/khmer/Battambang-Light.ttf
+          weight: 300
+        - asset: assets/fonts/khmer/Battambang-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/khmer/Battambang-Thin.ttf
+          weight: 100
+    - family: Koulen
+      fonts:
+        - asset: assets/fonts/khmer/Koulen-Regular.ttf
+          weight: 400
+    - family: Sans Sara
+      fonts: 
+        - asset: assets\fonts\en\Sans Sara.ttf

@@ -1,0 +1,37 @@
+{
+  "@@locale": "km",
+
+  "login": "ចូលគណនី",
+  "welcome": "សូមស្វាគមន៍ត្រឡប់មកវិញ!",
+  "forgetPassword": "ភ្លេចពាក្យសម្ងាត់?",
+  "orLoginWith": "ឬចូលប្រើជាមួយ",
+  "email": "អ៊ីមែល",
+  "password": "ពាក្យសម្ងាត់",
+  "registerNow": "ចុះឈ្មោះ",
+  "orrigister": "ឬចុះឈ្មោះប្រើជាមួយ",
+  "areYouamem": "អ្នកជាសមាជិក?",
+  "loginnow": "ចូលគណនីវិញ?",
+  "register": "ចុះឈ្មោះ",
+  "areYouNewHere": "តើអ្នកថ្មីនៅទីនេះឬ?",
+
+  "language": "ភាសា",
+  "welcometoMyapp": "សូមស្វាគមន៍មកកាន់ App",
+  "username": "ឈ្មោះរបស់អ្នក",
+
+  "home": "ទំព័រដើម",
+  "schedule": "កាលវិភាគ",
+  "keep": "រក្សាទុក",
+  "profile": "ប្រវត្តិរូប",
+
+  "profile": "ប្រវត្តិរូប",
+  "setting": "ការកំណត់",
+  "process": "ដំណើរការ",
+  "reward": "រង្វាន់",
+  "help": "ជំនួយ",
+  "loginout": "ចាកចេញ",
+  "home": "ទំព័រដើម",
+  "letMakeYour": "ធ្វើអោយការទំនាក់ទំនងរបស់អ្នកប្រសើរឡើង",
+  "topcategory": "ពេញនិយមបំផុត",
+  "viewALL": "ទាំងអស់"
+
+}

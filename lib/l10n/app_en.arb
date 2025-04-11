@@ -1,0 +1,36 @@
+{
+  "@@locale": "en",
+
+  "login": "Login",
+  "welcome": "Welcome Back!",
+  "forgetPassword": "Forget Password?",
+  "orLoginWith": "or Login with",
+  "email": "Email",
+  "password": "Password",
+  "registerNow": "RegisterNow",
+  "orrigister": "or Register with",
+  "areYouamem": "Are you a Member? ",
+  "loginnow": "Login now",
+  "register": "Register",
+  "areYouNewHere": "Are you new here?",
+
+  "language": "Language",
+  "welcometoMyapp": "Welcome to My app",
+  "username": "Username",
+
+  "home": "Home",
+  "schedule": "Schedule",
+  "keep": "Save",
+  "profile": "Profile",
+
+  "profile": "profile",
+  "setting": "Setting",
+  "process": "Process",
+  "reward": "Reward",
+  "help": "Help",
+  "loginout": "Log Out",
+  "home": "Home",
+  "letMakeYour": "Let's make your \nconnection better", 
+  "topcategory": "Top Category",
+  "viewALL": "View All"
+}
