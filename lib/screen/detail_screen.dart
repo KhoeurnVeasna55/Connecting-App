@@ -21,8 +21,7 @@ class _DetailScreenState extends State<DetailScreen> {
     final category = _topCategoryModel.categories[widget.index];
 
     return Scaffold(
-      appBar: 
-      AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
@@ -42,7 +41,10 @@ class _DetailScreenState extends State<DetailScreen> {
                 width: 60,
                 height: 60,
                 decoration: BoxDecoration(
-                  color: context.theme.shadowColor,
+                  color:
+                      context.isDarkMode
+                          ? Colors.white.withValues(alpha: 0.1)
+                          : Colors.black.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(60),
                 ),
                 child: Icon(
@@ -61,7 +63,6 @@ class _DetailScreenState extends State<DetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           
             const SizedBox(height: 20),
             _buildImage(category),
             const SizedBox(height: 20),
@@ -118,7 +119,9 @@ class _DetailScreenState extends State<DetailScreen> {
         return ElevatedButton(
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(
-              isDark ? Colors.white : Colors.black,
+              context.isDarkMode
+                  ? Colors.white.withValues(alpha: 0.1)
+                  : Colors.black.withValues(alpha: 0.1),
             ),
             maximumSize: WidgetStateProperty.all<Size>(
               const Size(double.infinity, 100),
@@ -129,7 +132,12 @@ class _DetailScreenState extends State<DetailScreen> {
             shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
-                side: BorderSide(color: isDark ? Colors.white : Colors.black),
+                side: BorderSide(
+                  color:
+                      context.isDarkMode
+                          ? Colors.white.withValues(alpha: 0.1)
+                          : Colors.black.withValues(alpha: 0.1),
+                ),
               ),
             ),
           ),

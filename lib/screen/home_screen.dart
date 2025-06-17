@@ -1,9 +1,9 @@
 import 'package:connecting_app/controller/language_controller.dart';
+import 'package:connecting_app/l10n/app_localizations.dart';
 import 'package:connecting_app/model/top_category_model.dart';
 import 'package:connecting_app/screen/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,13 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: context.theme.scaffoldBackgroundColor,
         body: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.only(top: 20, left: 20, ), 
           child: Column(
             spacing: _spaceHeight,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [_showAvatar, _showNotification],
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [_showAvatar, _showNotification],
+                ),
               ),
               Align(
                 alignment: Alignment.topLeft,
@@ -65,11 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 child: _buildTopCategoryList(context),
               ),
-              // SizedBox(
-              //   height: context.height * 0.05,
-              //   width: double.infinity,
-              //   child: _typeofCategory(),
-              // ),
             ],
           ),
         ),
@@ -78,7 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   get _showNotification => CircleAvatar(
-    backgroundColor: context.theme.shadowColor,
+    backgroundColor:context.isDarkMode ? Colors.white.withValues(alpha: 0.1): Colors.black.withValues(alpha: 0.1),
+
     radius: 25,
     child: Icon(
       Icons.notifications,
@@ -91,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
     padding: EdgeInsets.all(10),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(25),
-      color: context.theme.shadowColor,
+      color: context.isDarkMode ? Colors.white.withValues(alpha: 0.1): Colors.black.withValues(alpha: 0.1),
     ),
     child: Row(
       spacing: 8,

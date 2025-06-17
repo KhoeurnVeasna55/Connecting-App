@@ -31,7 +31,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
     final currentLocale = _languageController.locale.value.languageCode;
-    final topic = topCategoryModel.categories[widget.index]['topics'][widget.topicIndex];
+    final topic =
+        topCategoryModel.categories[widget.index]['topics'][widget.topicIndex];
 
     return SafeArea(
       child: Scaffold(
@@ -51,7 +52,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 width: 44,
                 height: 44,
                 decoration: BoxDecoration(
-                  color: context.theme.shadowColor,
+                  color:
+                      context.isDarkMode
+                          ? Colors.white.withValues(alpha: 0.1)
+                          : Colors.black.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -77,7 +81,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   width: double.infinity,
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: context.theme.shadowColor,
+                    color:
+                        context.isDarkMode
+                            ? Colors.white.withValues(alpha: 0.1)
+                            : Colors.black.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
@@ -113,15 +120,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
   Widget _buttonWidget(Widget icon, void Function()? onPressed) {
     return ElevatedButton.icon(
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(context.theme.shadowColor),
+        backgroundColor: WidgetStateProperty.all(
+          context.isDarkMode
+              ? Colors.white.withValues(alpha: 0.1)
+              : Colors.black.withValues(alpha: 0.1),
+        ),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(vertical: 18, horizontal: 25),
         ),
         shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-            
-          ),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       onPressed: onPressed,

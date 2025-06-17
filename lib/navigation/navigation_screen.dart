@@ -1,3 +1,4 @@
+import 'package:connecting_app/l10n/app_localizations.dart';
 import 'package:connecting_app/screen/call_screen.dart';
 import 'package:connecting_app/screen/home_screen.dart';
 import 'package:connecting_app/screen/profile_screen.dart';
@@ -5,7 +6,6 @@ import 'package:connecting_app/screen/schedule_screen.dart';
 import 'package:connecting_app/screen/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
