@@ -13,29 +13,34 @@ class AuthController extends GetxController {
   Future<void> checkSession() async {
     final session = Supabase.instance.client.auth.currentSession;
 
-    if (session != null && session.expiresAt != null) {
-      final expiresAt = DateTime.fromMillisecondsSinceEpoch(
-        session.expiresAt! * 1000,
-      );
-      final now = DateTime.now();
+    // if (session != null && session.expiresAt != null) {
+    //   final expiresAt = DateTime.fromMillisecondsSinceEpoch(
+    //     session.expiresAt! * 1000,
+    //   );
+    //   final now = DateTime.now();
 
-      log('Token expires at: $expiresAt, now is: $now');
+    //   log('Token expires at: $expiresAt, now is: $now');
 
-      if (now.isBefore(expiresAt)) {
-        log('Token still valid. Navigating to MainScreen');
-        Get.offAllNamed(AppRoute.mainSereen);
-        return;
-      }
-    }
+    //   if (now.isBefore(expiresAt)) {
+    //     log('Token still valid. Navigating to MainScreen');
+    //     Get.offAllNamed(AppRoute.mainSereen);
+    //     return;
+    //   }
+    // }
 
-    final res = await Supabase.instance.client.auth.refreshSession();
+    // final res = await Supabase.instance.client.auth.refreshSession();
 
-    if (res.session != null && res.user != null) {
-      log(' Session refreshed successfully.');
-      Get.offAllNamed(AppRoute.mainSereen);
+    // if (res.session != null && res.user != null) {
+    //   log(' Session refreshed successfully.');
+    //   Get.offAllNamed(AppRoute.mainSereen);
+    // } else {
+    //   log(' No valid session. Redirecting to login.');
+    //   Get.offAllNamed(AppRoute.loginScreen);
+    // }
+    if (session != null) {
+      Get.toNamed(AppRoute.mainSereen);
     } else {
-      log(' No valid session. Redirecting to login.');
-      Get.offAllNamed(AppRoute.loginScreen);
+      Get.toNamed(AppRoute.loginScreen);
     }
   }
 
@@ -125,8 +130,14 @@ class AuthController extends GetxController {
       final AuthResponse response = await _supabase.auth.signUp(
         email: email,
         password: password,
+        emailRedirectTo:
+            null, // don't trigger email confirmation if you turned it off
+
         data: {'username': username},
       );
+
+      log('User: ${response.user}');
+      log('Session: ${response.session}');
 
       if (response.user != null) {
         await LocalStorageService.instance.setString(
@@ -134,28 +145,36 @@ class AuthController extends GetxController {
           response.user!.id,
         );
 
-        final session = response.session;
-        if (session != null) {
+        if (response.session != null) {
           await LocalStorageService.instance.setString(
             'access_token',
-            session.accessToken,
+            response.session!.accessToken,
           );
           await LocalStorageService.instance.setString(
             'refresh_token',
-            session.refreshToken!,
+            response.session!.refreshToken!,
           );
-        }
 
-        Get.offAllNamed(AppRoute.mainSereen);
+          Get.offAllNamed(AppRoute.mainSereen);
+        } else {
+          log(
+            'User registered but no session returned. Email confirmation might be required.',
+          );
+          Get.snackbar(
+            "Verify Email",
+            "Check your inbox to confirm your email before logging in.",
+          );
+          Get.offAllNamed(AppRoute.loginScreen);
+        }
       } else {
         Get.snackbar("Registration Error", "Unable to register user.");
         Get.offAllNamed(AppRoute.loginScreen);
       }
     } on AuthException catch (e) {
-      log('Registration error: ${e.message}');
+      log('AuthException: ${e.message}');
       Get.snackbar("Auth Error", e.message);
     } catch (e) {
-      log('Unexpected registration error: $e');
+      log('Unexpected error: $e');
       Get.snackbar("Error", "Something went wrong.");
     } finally {
       isLoading.value = false;

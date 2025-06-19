@@ -126,19 +126,24 @@ class LoginScreen extends StatelessWidget {
                                   children: [
                                     Row(
                                       children: [
-                                       Obx(() {
-                                         return Row(
-                                           children: [
-                                             Checkbox(
-                                               value: _authContoller.isRememberMe.value,
-                                               onChanged: (value) {
-                                                 _authContoller.isRememberMe.value = value ?? false;
-                                               },
-                                             ),
-                                             Text('Remember me'),
-                                           ],
-                                         );
-                                       })
+                                        Obx(() {
+                                          return Row(
+                                            children: [
+                                              Checkbox(
+                                                value:
+                                                    _authContoller
+                                                        .isRememberMe
+                                                        .value,
+                                                onChanged: (value) {
+                                                  _authContoller
+                                                      .isRememberMe
+                                                      .value = value ?? false;
+                                                },
+                                              ),
+                                              Text('Remember me'),
+                                            ],
+                                          );
+                                        }),
                                       ],
                                     ),
                                     Text(
@@ -164,17 +169,15 @@ class LoginScreen extends StatelessWidget {
                                     ),
                                     onPressed: () async {
                                       if (formKey.currentState!.validate()) {
-                                        if (formKey.currentState!.validate()) {
-                                          final success = await _authContoller
-                                              .isLogin(
-                                                emailController.text.trim(),
-                                                passwordController.text.trim(),
-                                              );
+                                        final success = await _authContoller
+                                            .isLogin(
+                                              emailController.text.trim(),
+                                              passwordController.text.trim(),
+                                            );
 
-                                          if (success) {
-                                            // Get.to(NavigationPage());
-                                            Get.toNamed(AppRoute.mainSereen);
-                                          }
+                                        if (success) {
+                                          // Get.to(NavigationPage());
+                                          Get.toNamed(AppRoute.mainSereen);
                                         }
                                       }
                                     },
